@@ -73,6 +73,7 @@ const FormValidation = () => {
         value={form.name}
         onChangeText={value => handleChange('name', value)}
         style={styles.input}
+        placeholderTextColor={colors.primary}
       />
       {errors.name ? <Text style={styles.error}>{errors.name}</Text> : null}
 
@@ -82,6 +83,7 @@ const FormValidation = () => {
         onChangeText={value => handleChange('email', value)}
         style={styles.input}
         keyboardType="email-address"
+        placeholderTextColor={colors.primary}
       />
       {errors.email ? <Text style={styles.error}>{errors.email}</Text> : null}
 
@@ -91,6 +93,7 @@ const FormValidation = () => {
         onChangeText={value => handleChange('password', value)}
         style={styles.input}
         secureTextEntry
+        placeholderTextColor={colors.primary}
       />
       {errors.password ? (
         <Text style={styles.error}>{errors.password}</Text>
@@ -100,8 +103,8 @@ const FormValidation = () => {
         <Text style={styles.submitText}>Submit</Text>
       </TouchableOpacity>
       <View style={{marginTop: 50, alignItems: 'center'}}>
-        <Text>Name:{form.name}</Text>
-        <Text>Email:{form.email}</Text>
+        <Text style={styles.result}>Name:{form.name}</Text>
+        <Text style={styles.result}>Email:{form.email}</Text>
       </View>
     </View>
   );
@@ -127,6 +130,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 10,
     backgroundColor: colors.background,
+    color: colors.primary,
   },
   error: {
     color: 'red',
@@ -142,6 +146,11 @@ const styles = StyleSheet.create({
   },
   submitText: {
     color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  result: {
+    color: colors.primary,
     fontSize: 16,
     fontWeight: 'bold',
   },
